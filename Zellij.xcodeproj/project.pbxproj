@@ -21,6 +21,10 @@
 		26F62F162507008600FDEA70 /* AnimatableCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F62F142507008600FDEA70 /* AnimatableCircle.swift */; };
 		26F62F18250700C500FDEA70 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F62F17250700C500FDEA70 /* Geometry.swift */; };
 		26F62F19250700C500FDEA70 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F62F17250700C500FDEA70 /* Geometry.swift */; };
+		26F62F1B2507198400FDEA70 /* PatternOneConstructionLinesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F62F1A2507198400FDEA70 /* PatternOneConstructionLinesView.swift */; };
+		26F62F1C2507198400FDEA70 /* PatternOneConstructionLinesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F62F1A2507198400FDEA70 /* PatternOneConstructionLinesView.swift */; };
+		26F62F1E25071E6E00FDEA70 /* AnimatablePulsingCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F62F1D25071E6D00FDEA70 /* AnimatablePulsingCircle.swift */; };
+		26F62F1F25071E6E00FDEA70 /* AnimatablePulsingCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F62F1D25071E6D00FDEA70 /* AnimatablePulsingCircle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +40,8 @@
 		26F62F112506FFFF00FDEA70 /* AnimatableLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableLine.swift; sourceTree = "<group>"; };
 		26F62F142507008600FDEA70 /* AnimatableCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableCircle.swift; sourceTree = "<group>"; };
 		26F62F17250700C500FDEA70 /* Geometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geometry.swift; sourceTree = "<group>"; };
+		26F62F1A2507198400FDEA70 /* PatternOneConstructionLinesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternOneConstructionLinesView.swift; sourceTree = "<group>"; };
+		26F62F1D25071E6D00FDEA70 /* AnimatablePulsingCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatablePulsingCircle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +124,8 @@
 				26F62F0E2506FD9100FDEA70 /* ConstructionCircle.swift */,
 				26F62F112506FFFF00FDEA70 /* AnimatableLine.swift */,
 				26F62F142507008600FDEA70 /* AnimatableCircle.swift */,
+				26F62F1D25071E6D00FDEA70 /* AnimatablePulsingCircle.swift */,
+				26F62F1A2507198400FDEA70 /* PatternOneConstructionLinesView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -221,10 +229,12 @@
 			files = (
 				26F62F0F2506FD9100FDEA70 /* ConstructionCircle.swift in Sources */,
 				26F62F18250700C500FDEA70 /* Geometry.swift in Sources */,
+				26F62F1E25071E6E00FDEA70 /* AnimatablePulsingCircle.swift in Sources */,
 				26F62F152507008600FDEA70 /* AnimatableCircle.swift in Sources */,
 				26F62F122506FFFF00FDEA70 /* AnimatableLine.swift in Sources */,
 				26F62EFB2506B8D000FDEA70 /* ZellijApp.swift in Sources */,
 				26F62F0B2506B92000FDEA70 /* Color.swift in Sources */,
+				26F62F1B2507198400FDEA70 /* PatternOneConstructionLinesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,10 +244,12 @@
 			files = (
 				26F62F102506FD9100FDEA70 /* ConstructionCircle.swift in Sources */,
 				26F62F19250700C500FDEA70 /* Geometry.swift in Sources */,
+				26F62F1F25071E6E00FDEA70 /* AnimatablePulsingCircle.swift in Sources */,
 				26F62F162507008600FDEA70 /* AnimatableCircle.swift in Sources */,
 				26F62F132506FFFF00FDEA70 /* AnimatableLine.swift in Sources */,
 				26F62EFC2506B8D000FDEA70 /* ZellijApp.swift in Sources */,
 				26F62F0C2506B92000FDEA70 /* Color.swift in Sources */,
+				26F62F1C2507198400FDEA70 /* PatternOneConstructionLinesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

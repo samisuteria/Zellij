@@ -5,7 +5,11 @@ import Combine
 struct ZellijApp: App {
     var body: some Scene {
         WindowGroup {
-            ConstructionCircleView(store: ConstructionCircleStore(timer: ZellijApp.animationTimer))
+            let store = PatternOneConstructionLinesStore(
+                timer: ZellijApp.animationTimer,
+                pulse: ZellijApp.animationPulse)
+            
+            PatternOneConstructionLinesView(store: store)
                 .frame(width: 400, height: 400)
                 .background(Color.blueprint)
                 .padding()
@@ -16,7 +20,9 @@ struct ZellijApp: App {
 extension ZellijApp {
     static var animationTimer: Publishers.Autoconnect<Timer.TimerPublisher> {
         Timer
-            .publish(every: 0.5, on: .main, in: .common)
+            .publish(every: animationPulse, on: .main, in: .common)
             .autoconnect()
     }
+    
+    static var animationPulse: TimeInterval { 0.5 }
 }

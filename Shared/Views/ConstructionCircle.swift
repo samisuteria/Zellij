@@ -22,6 +22,7 @@ class ConstructionCircleStore: ObservableObject {
     }
     
     private var timer: Publishers.Autoconnect<Timer.TimerPublisher>
+    private var pulse: TimeInterval
     private var subscriptions = Set<AnyCancellable>()
     private var state: State = .initial { didSet { update(state) }}
     private var rect: CGRect = .zero
@@ -30,8 +31,9 @@ class ConstructionCircleStore: ObservableObject {
     @Published var linePoints: [Geometry.PointPair] = [.zero, .zero, .zero, .zero]
     @Published var strokeColor: Color = .drawing
     
-    init(timer: Publishers.Autoconnect<Timer.TimerPublisher>) {
+    init(timer: Publishers.Autoconnect<Timer.TimerPublisher>, pulse: TimeInterval) {
         self.timer = timer
+        self.pulse = pulse
     }
     
     func start(_ rect: CGRect, delay: Int = 0) {
@@ -61,18 +63,18 @@ class ConstructionCircleStore: ObservableObject {
                 .init(CGPoint(x: rect.maxX, y: rect.minY), CGPoint(x: rect.maxX, y: rect.minY))
             ]
         case .drawCircle:
-            withAnimation(.linear(duration: 1.0)) {
+            withAnimation(.linear(duration: pulse * 2)) {
                 self.circleProgress = 1.0
             }
         case .drawAxis:
-            withAnimation {
+            withAnimation(.linear(duration: pulse)) {
                 self.linePoints[0] = .init(CGPoint(x: rect.midX, y: rect.minY),
                                            CGPoint(x: rect.midX, y: rect.maxY))
                 self.linePoints[1] = .init(CGPoint(x: rect.minX, y: rect.midY),
                                            CGPoint(x: rect.maxX, y: rect.midY))
             }
         case .drawCross:
-            withAnimation {
+            withAnimation(.linear(duration: pulse)) {
                 self.linePoints[2] = .init(CGPoint(x: rect.minX, y: rect.minY),
                                            CGPoint(x: rect.maxX, y: rect.maxY))
                 self.linePoints[3] = .init(CGPoint(x: rect.maxX, y: rect.minY),
@@ -81,7 +83,7 @@ class ConstructionCircleStore: ObservableObject {
         case .pause:
             break
         case .done:
-            withAnimation {
+            withAnimation(.linear(duration: pulse)) {
                 self.strokeColor = .construction
             }
         }
@@ -109,7 +111,7 @@ struct ConstructionCircleView: View {
 
 struct ConstructionCircle_Previews: PreviewProvider {
     static var previews: some View {
-        ConstructionCircleView(store: ConstructionCircleStore(timer: ZellijApp.animationTimer))
+        ConstructionCircleView(store: ConstructionCircleStore(timer: ZellijApp.animationTimer, pulse: ZellijApp.animationPulse))
             .frame(width: 400, height: 400)
             .background(Color.blueprint)
             .padding()
