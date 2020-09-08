@@ -1,79 +1,60 @@
 import SwiftUI
 import Combine
 
-class PatternOneConstructionLinesStore: ObservableObject {
-    enum State {
-        case initial
-        case pulseOne
-        case pulseTwo
-        case pulseThree
-        case pulseFour
-        case drawLinesOne
-        case drawLinesTwo
-        case drawLinesThree
-        case drawLinesFour
-        case extendLines
-        case pause
-        case done
-        
-        static var timeline: [State] = [
-            .initial,
-            .pulseOne,
-            .drawLinesOne,
-            .pulseTwo,
-            .drawLinesTwo,
-            .pulseThree,
-            .drawLinesThree,
-            .pulseFour,
-            .drawLinesFour,
-            .pause,
-            .extendLines,
-            .pause,
-            .done,
-        ]
-    }
+enum PatternOneConstructionState: AnimatableState {
+    case initial
+    case pulseOne
+    case pulseTwo
+    case pulseThree
+    case pulseFour
+    case drawLinesOne
+    case drawLinesTwo
+    case drawLinesThree
+    case drawLinesFour
+    case extendLines
+    case pause
+    case done
     
-    private var timer: Publishers.Autoconnect<Timer.TimerPublisher>
-    private var pulse: TimeInterval
-    private var subscriptions = Set<AnyCancellable>()
-    private var state: State = .initial { didSet { update(state) }}
-    private var rect: CGRect = .zero
-    private var pointsOnCircle: [CGPoint] = []
-    var subStoreDelay: TimeInterval {
-        Double(ConstructionCircleStore.State.timeline.count) * pulse
-    }
+    static let timeline: [PatternOneConstructionState] = [
+        .initial,
+        .pulseOne,
+        .drawLinesOne,
+        .pulseTwo,
+        .drawLinesTwo,
+        .pulseThree,
+        .drawLinesThree,
+        .pulseFour,
+        .drawLinesFour,
+        .pause,
+        .extendLines,
+        .pause,
+        .done,
+    ]
+}
+
+class PatternOneConstructionStore: AnimatableStore<PatternOneConstructionState>, ObservableObject {
+    private(set) var pointsOnCircle: [CGPoint] = []
     let constructionCircleStore: ConstructionCircleStore
-    
-    init(timer: Publishers.Autoconnect<Timer.TimerPublisher>, pulse: TimeInterval) {
-        self.timer = timer
-        self.pulse = pulse
-        self.constructionCircleStore = ConstructionCircleStore(timer: timer, pulse: pulse)
-    }
-    
-    func start(_ rect: CGRect, delay: Double = 0) {
-        self.rect = rect
-        self.pointsOnCircle = Geometry.Circle.allPoints(
-            radius: min(rect.width, rect.height) * 0.5,
-            center: rect.center,
-            divisons: 8)
-        
-        timer
-            .zip(State.timeline.publisher)
-            .map { $0.1 }
-            .delay(for: .seconds(delay + subStoreDelay), scheduler: DispatchQueue.main)
-            .sink { self.state = $0 }
-            .store(in: &subscriptions)
-    }
-    
-    func stop() {
-        subscriptions.forEach { $0.cancel() }
-    }
     
     @Published var pulsingCircles: [AnimatablePulsingCircle] = []
     @Published var drawnLines: [AnimatableLine] = []
-    @Published var strokeColor: Color = .drawing
     
-    private func update(_ state: State) {
+    override init(timer: Publishers.Autoconnect<Timer.TimerPublisher>, pulse: TimeInterval) {
+        self.constructionCircleStore = ConstructionCircleStore(timer: timer, pulse: pulse)
+        super.init(timer: timer, pulse: pulse)
+    }
+    
+    override func start(_ rect: CGRect, delay: Double = 0) {
+        pointsOnCircle = Geometry.Circle.allPoints(
+            radius: min(rect.width, rect.height) * 0.5,
+            center: rect.center,
+            divisons: 8)
+         
+        constructionCircleStore.start(rect, delay: delay)
+        super.start(rect, delay: Double(ConstructionCircleState.timeline.count) * pulse)
+    }
+    
+    override func update(_ state: PatternOneConstructionState) {
         switch state {
         case .initial:
             pulsingCircles = [.zero, .zero, .zero]
@@ -173,35 +154,32 @@ class PatternOneConstructionLinesStore: ObservableObject {
 }
 
 struct PatternOneConstructionLinesView: View {
-    @StateObject var store: PatternOneConstructionLinesStore
+    @StateObject var store: PatternOneConstructionStore
     
     var body: some View {
-        GeometryReader { geometry in
-            ZStack {
-                ConstructionCircleView(store: store.constructionCircleStore)
+        ZStack {
+            ConstructionCircleView(store: store.constructionCircleStore)
                 
-                ForEach(store.pulsingCircles) {
-                    AnimatablePulsingCircleView(model: $0)
-                }
-                
-                ForEach(store.drawnLines) {
-                    AnimatableLineView(model: $0)
-                }
-                
-            }.onAppear { self.store.start(geometry.frame(in: .local))}
+            ForEach(store.pulsingCircles) {
+                AnimatablePulsingCircleView(model: $0)
+            }
+            
+            ForEach(store.drawnLines) {
+                AnimatableLineView(model: $0)
+            }
         }
     }
 }
 
 struct PatternOneConstructionLinesView_Previews: PreviewProvider {
     static var previews: some View {
-        let store = PatternOneConstructionLinesStore(
-            timer: ZellijApp.animationTimer,
-            pulse: ZellijApp.animationPulse)
+        let store = PatternOneConstructionStore(timer: ZellijApp.animationTimer, pulse: ZellijApp.animationPulse)
         
-        PatternOneConstructionLinesView(store: store)
-            .frame(width: 400, height: 400)
-            .background(Color.blueprint)
-            .padding()
+        GeometryReader { geometry in
+            PatternOneConstructionLinesView(store: store)
+                .onAppear { store.start(geometry.frame(in: .local)) }
+        }
+        .frame(width: 400, height: 400)
+        .background(Color.blueprint)
     }
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		26BA3F2A25075FB90091373A /* AnimatableStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BA3F2925075FB90091373A /* AnimatableStore.swift */; };
+		26BA3F2B25075FB90091373A /* AnimatableStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BA3F2925075FB90091373A /* AnimatableStore.swift */; };
 		26F62EFB2506B8D000FDEA70 /* ZellijApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F62EE82506B8CF00FDEA70 /* ZellijApp.swift */; };
 		26F62EFC2506B8D000FDEA70 /* ZellijApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F62EE82506B8CF00FDEA70 /* ZellijApp.swift */; };
 		26F62EFF2506B8D000FDEA70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26F62EEA2506B8D000FDEA70 /* Assets.xcassets */; };
@@ -28,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		26BA3F2925075FB90091373A /* AnimatableStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableStore.swift; sourceTree = "<group>"; };
 		26F62EE82506B8CF00FDEA70 /* ZellijApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZellijApp.swift; sourceTree = "<group>"; };
 		26F62EEA2506B8D000FDEA70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		26F62EEF2506B8D000FDEA70 /* Zellij.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zellij.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,6 +129,7 @@
 				26F62F142507008600FDEA70 /* AnimatableCircleShape.swift */,
 				26F62F1D25071E6D00FDEA70 /* AnimatablePulsingCircleShape.swift */,
 				26F62F1A2507198400FDEA70 /* PatternOneConstructionLinesView.swift */,
+				26BA3F2925075FB90091373A /* AnimatableStore.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -234,6 +238,7 @@
 				26F62F122506FFFF00FDEA70 /* AnimatableLineShape.swift in Sources */,
 				26F62EFB2506B8D000FDEA70 /* ZellijApp.swift in Sources */,
 				26F62F0B2506B92000FDEA70 /* Color.swift in Sources */,
+				26BA3F2A25075FB90091373A /* AnimatableStore.swift in Sources */,
 				26F62F1B2507198400FDEA70 /* PatternOneConstructionLinesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -249,6 +254,7 @@
 				26F62F132506FFFF00FDEA70 /* AnimatableLineShape.swift in Sources */,
 				26F62EFC2506B8D000FDEA70 /* ZellijApp.swift in Sources */,
 				26F62F0C2506B92000FDEA70 /* Color.swift in Sources */,
+				26BA3F2B25075FB90091373A /* AnimatableStore.swift in Sources */,
 				26F62F1C2507198400FDEA70 /* PatternOneConstructionLinesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

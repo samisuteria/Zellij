@@ -1,5 +1,24 @@
 import SwiftUI
 
+struct AnimatableCircle: Identifiable {
+    let id: UUID
+    var progress: Double
+    var strokeColor: Color
+    
+    static var zero: Self {
+        .init(id: .init(), progress: .zero, strokeColor: .white)
+    }
+}
+
+struct AnimatableCircleView: View {
+    var model: AnimatableCircle
+    
+    var body: some View {
+        AnimatableCircleShape(progress: model.progress)
+            .stroke(model.strokeColor, lineWidth: 1.0)
+    }
+}
+
 struct AnimatableCircleShape: Shape {
     // Should be a value between 0 to 1
     var progress: Double

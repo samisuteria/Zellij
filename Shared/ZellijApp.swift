@@ -5,7 +5,7 @@ import Combine
 struct ZellijApp: App {
     var body: some Scene {
         WindowGroup {
-            let store = PatternOneConstructionLinesStore(
+            let store = PatternOneConstructionStore(
                 timer: ZellijApp.animationTimer,
                 pulse: ZellijApp.animationPulse)
             
