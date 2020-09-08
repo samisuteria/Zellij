@@ -96,10 +96,10 @@ struct ConstructionCircleView: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                AnimatableCircle(progress: store.circleProgress)
+                AnimatableCircleShape(progress: store.circleProgress)
                     .stroke(store.strokeColor, lineWidth: 1.0)
                 ForEach(0..<store.linePoints.count) { index in
-                    AnimatableLine(start: store.linePoints[index].start,
+                    AnimatableLineShape(start: store.linePoints[index].start,
                                    end: store.linePoints[index].end)
                         .stroke(store.strokeColor, lineWidth: 1.0)
                 }

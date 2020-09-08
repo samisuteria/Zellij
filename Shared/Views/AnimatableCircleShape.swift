@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct AnimatableCircle: Shape {
+struct AnimatableCircleShape: Shape {
     // Should be a value between 0 to 1
     var progress: Double
     

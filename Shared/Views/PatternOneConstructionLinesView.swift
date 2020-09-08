@@ -69,54 +69,8 @@ class PatternOneConstructionLinesStore: ObservableObject {
         subscriptions.forEach { $0.cancel() }
     }
     
-    struct PulsingCircle: Identifiable {
-        let id: UUID
-        var progress: CGFloat
-        var center: CGPoint
-        var alpha: Double
-        
-        mutating func reset() {
-            progress = 0.0
-            alpha = 1.0
-        }
-        
-        mutating func animate() {
-            progress = 1.0
-            alpha = 0.0
-        }
-        
-        static var zero: Self {
-            .init(id: .init(), progress: .zero, center: .zero, alpha: .zero)
-        }
-    }
-    
-    struct DrawnLine: Identifiable {
-        let id: UUID
-        var start: CGPoint
-        var end: CGPoint
-        
-        mutating func reset(_ point: CGPoint) {
-            start = point
-            end = point
-        }
-        
-        mutating func animate(_ start: CGPoint, _ end: CGPoint) {
-            self.start = start
-            self.end = end
-        }
-        
-        mutating func animate(_ pair: Geometry.PointPair) {
-            self.start = pair.start
-            self.end = pair.end
-        }
-        
-        static var zero: Self {
-            .init(id: .init(), start: .zero, end: .zero)
-        }
-    }
-    
-    @Published var pulsingCircles: [PulsingCircle] = []
-    @Published var drawnLines: [DrawnLine] = []
+    @Published var pulsingCircles: [AnimatablePulsingCircle] = []
+    @Published var drawnLines: [AnimatableLine] = []
     @Published var strokeColor: Color = .drawing
     
     private func update(_ state: State) {
@@ -124,7 +78,7 @@ class PatternOneConstructionLinesStore: ObservableObject {
         case .initial:
             pulsingCircles = [.zero, .zero, .zero]
             drawnLines = [.zero, .zero, .zero, .zero, .zero, .zero, .zero, .zero]
-            strokeColor = .drawing
+            (0..<drawnLines.count).forEach { drawnLines[$0].animate(.drawing) }
         case .pulseOne:
             pulsingCircles[0].center = pointsOnCircle[0]
             pulsingCircles[1].center = pointsOnCircle[3]
@@ -212,7 +166,7 @@ class PatternOneConstructionLinesStore: ObservableObject {
             break
         case .done:
             withAnimation(.linear(duration: pulse)) {
-                strokeColor = .construction
+                (0..<drawnLines.count).forEach { drawnLines[$0].animate(.construction) }
             }
         }
     }
@@ -227,14 +181,11 @@ struct PatternOneConstructionLinesView: View {
                 ConstructionCircleView(store: store.constructionCircleStore)
                 
                 ForEach(store.pulsingCircles) {
-                    AnimatablePulsingCircle(progress: $0.progress, center: $0.center)
-                        .opacity($0.alpha)
-                        .foregroundColor(store.strokeColor)
+                    AnimatablePulsingCircleView(model: $0)
                 }
                 
                 ForEach(store.drawnLines) {
-                    AnimatableLine(start: $0.start, end: $0.end)
-                        .stroke(store.strokeColor, lineWidth: 1.0)
+                    AnimatableLineView(model: $0)
                 }
                 
             }.onAppear { self.store.start(geometry.frame(in: .local))}
