@@ -9,21 +9,33 @@
 /* Begin PBXBuildFile section */
 		26F62EFB2506B8D000FDEA70 /* ZellijApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F62EE82506B8CF00FDEA70 /* ZellijApp.swift */; };
 		26F62EFC2506B8D000FDEA70 /* ZellijApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F62EE82506B8CF00FDEA70 /* ZellijApp.swift */; };
-		26F62EFD2506B8D000FDEA70 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F62EE92506B8CF00FDEA70 /* ContentView.swift */; };
-		26F62EFE2506B8D000FDEA70 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F62EE92506B8CF00FDEA70 /* ContentView.swift */; };
 		26F62EFF2506B8D000FDEA70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26F62EEA2506B8D000FDEA70 /* Assets.xcassets */; };
 		26F62F002506B8D000FDEA70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26F62EEA2506B8D000FDEA70 /* Assets.xcassets */; };
+		26F62F0B2506B92000FDEA70 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F62F0A2506B92000FDEA70 /* Color.swift */; };
+		26F62F0C2506B92000FDEA70 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F62F0A2506B92000FDEA70 /* Color.swift */; };
+		26F62F0F2506FD9100FDEA70 /* ConstructionCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F62F0E2506FD9100FDEA70 /* ConstructionCircle.swift */; };
+		26F62F102506FD9100FDEA70 /* ConstructionCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F62F0E2506FD9100FDEA70 /* ConstructionCircle.swift */; };
+		26F62F122506FFFF00FDEA70 /* AnimatableLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F62F112506FFFF00FDEA70 /* AnimatableLine.swift */; };
+		26F62F132506FFFF00FDEA70 /* AnimatableLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F62F112506FFFF00FDEA70 /* AnimatableLine.swift */; };
+		26F62F152507008600FDEA70 /* AnimatableCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F62F142507008600FDEA70 /* AnimatableCircle.swift */; };
+		26F62F162507008600FDEA70 /* AnimatableCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F62F142507008600FDEA70 /* AnimatableCircle.swift */; };
+		26F62F18250700C500FDEA70 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F62F17250700C500FDEA70 /* Geometry.swift */; };
+		26F62F19250700C500FDEA70 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F62F17250700C500FDEA70 /* Geometry.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		26F62EE82506B8CF00FDEA70 /* ZellijApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZellijApp.swift; sourceTree = "<group>"; };
-		26F62EE92506B8CF00FDEA70 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		26F62EEA2506B8D000FDEA70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		26F62EEF2506B8D000FDEA70 /* Zellij.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zellij.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26F62EF22506B8D000FDEA70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26F62EF72506B8D000FDEA70 /* Zellij.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zellij.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26F62EF92506B8D000FDEA70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26F62EFA2506B8D000FDEA70 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		26F62F0A2506B92000FDEA70 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		26F62F0E2506FD9100FDEA70 /* ConstructionCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructionCircle.swift; sourceTree = "<group>"; };
+		26F62F112506FFFF00FDEA70 /* AnimatableLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableLine.swift; sourceTree = "<group>"; };
+		26F62F142507008600FDEA70 /* AnimatableCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableCircle.swift; sourceTree = "<group>"; };
+		26F62F17250700C500FDEA70 /* Geometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geometry.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,8 +69,10 @@
 		26F62EE72506B8CF00FDEA70 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				26F62F0D2506FD7900FDEA70 /* Views */,
+				26F62F092506B91200FDEA70 /* Extensions */,
 				26F62EE82506B8CF00FDEA70 /* ZellijApp.swift */,
-				26F62EE92506B8CF00FDEA70 /* ContentView.swift */,
+				26F62F17250700C500FDEA70 /* Geometry.swift */,
 				26F62EEA2506B8D000FDEA70 /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -88,6 +102,24 @@
 				26F62EFA2506B8D000FDEA70 /* macOS.entitlements */,
 			);
 			path = macOS;
+			sourceTree = "<group>";
+		};
+		26F62F092506B91200FDEA70 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				26F62F0A2506B92000FDEA70 /* Color.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		26F62F0D2506FD7900FDEA70 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				26F62F0E2506FD9100FDEA70 /* ConstructionCircle.swift */,
+				26F62F112506FFFF00FDEA70 /* AnimatableLine.swift */,
+				26F62F142507008600FDEA70 /* AnimatableCircle.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,8 +219,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26F62EFD2506B8D000FDEA70 /* ContentView.swift in Sources */,
+				26F62F0F2506FD9100FDEA70 /* ConstructionCircle.swift in Sources */,
+				26F62F18250700C500FDEA70 /* Geometry.swift in Sources */,
+				26F62F152507008600FDEA70 /* AnimatableCircle.swift in Sources */,
+				26F62F122506FFFF00FDEA70 /* AnimatableLine.swift in Sources */,
 				26F62EFB2506B8D000FDEA70 /* ZellijApp.swift in Sources */,
+				26F62F0B2506B92000FDEA70 /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,8 +232,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26F62EFE2506B8D000FDEA70 /* ContentView.swift in Sources */,
+				26F62F102506FD9100FDEA70 /* ConstructionCircle.swift in Sources */,
+				26F62F19250700C500FDEA70 /* Geometry.swift in Sources */,
+				26F62F162507008600FDEA70 /* AnimatableCircle.swift in Sources */,
+				26F62F132506FFFF00FDEA70 /* AnimatableLine.swift in Sources */,
 				26F62EFC2506B8D000FDEA70 /* ZellijApp.swift in Sources */,
+				26F62F0C2506B92000FDEA70 /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,7 +408,7 @@
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = DVZQHUVU8F;
+				DEVELOPMENT_TEAM = 2S5357N6EL;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = macOS/Info.plist;
@@ -392,7 +432,7 @@
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = DVZQHUVU8F;
+				DEVELOPMENT_TEAM = 2S5357N6EL;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = macOS/Info.plist;
