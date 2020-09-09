@@ -5,14 +5,30 @@ import Combine
 struct ZellijApp: App {
     var body: some Scene {
         WindowGroup {
-            let store = PatternOneConstructionStore(
+            let store = PatternOneDrawingStore(
                 timer: ZellijApp.animationTimer,
                 pulse: ZellijApp.animationPulse)
             
-            PatternOneConstructionLinesView(store: store)
-                .frame(width: 400, height: 400)
-                .background(Color.blueprint)
-                .padding()
+            HStack(spacing: 0) {
+                ForEach(0..<4) { _ in
+                    VStack(spacing: 0) {
+                        ForEach(0..<4) { _ in
+                            PatternOneDrawingView(store: store)
+                                .frame(width: 200, height: 200)
+                        }
+                    }
+                }
+            }
+            .drawingGroup()
+            .background(Color.blueprint)
+            .onTapGesture {
+                store.start(CGRect(origin: .zero,
+                                   size: CGSize(
+                                    width: 200,
+                                    height: 200)),
+                            delay: 1.0)
+            }
+            .frame(width: 800, height: 800)
         }
     }
 }
@@ -24,5 +40,5 @@ extension ZellijApp {
             .autoconnect()
     }
     
-    static var animationPulse: TimeInterval { 0.5 }
+    static var animationPulse: TimeInterval { 0.75 }
 }

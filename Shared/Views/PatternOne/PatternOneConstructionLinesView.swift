@@ -35,6 +35,9 @@ enum PatternOneConstructionState: AnimatableState {
 class PatternOneConstructionStore: AnimatableStore<PatternOneConstructionState>, ObservableObject {
     private(set) var pointsOnCircle: [CGPoint] = []
     let constructionCircleStore: ConstructionCircleStore
+    var subDelay: Double {
+        Double(ConstructionCircleState.timeline.count) * pulse
+    }
     
     @Published var pulsingCircles: [AnimatablePulsingCircle] = []
     @Published var drawnLines: [AnimatableLine] = []
@@ -51,7 +54,12 @@ class PatternOneConstructionStore: AnimatableStore<PatternOneConstructionState>,
             divisons: 8)
          
         constructionCircleStore.start(rect, delay: delay)
-        super.start(rect, delay: Double(ConstructionCircleState.timeline.count) * pulse)
+        super.start(rect, delay: subDelay)
+    }
+    
+    override func stop() {
+        constructionCircleStore.stop()
+        super.stop()
     }
     
     override func update(_ state: PatternOneConstructionState) {

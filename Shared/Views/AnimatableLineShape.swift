@@ -5,6 +5,7 @@ struct AnimatableLine: Identifiable {
     var start: CGPoint
     var end: CGPoint
     var strokeColor: Color
+    var lineWidth: CGFloat
     
     mutating func reset(_ point: CGPoint) {
         start = point
@@ -26,7 +27,7 @@ struct AnimatableLine: Identifiable {
     }
     
     static var zero: Self {
-        .init(id: .init(), start: .zero, end: .zero, strokeColor: .white)
+        .init(id: .init(), start: .zero, end: .zero, strokeColor: .white, lineWidth: 1.0)
     }
 }
 
@@ -35,7 +36,7 @@ struct AnimatableLineView: View {
     
     var body: some View {
         AnimatableLineShape(start: model.start, end: model.end)
-            .stroke(model.strokeColor, lineWidth: 1.0)
+            .stroke(model.strokeColor, lineWidth: model.lineWidth)
     }
 }
 
